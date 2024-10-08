@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# 상품 목록 페이지 요구사항 분석 및 기능 목록
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 기본 정보
+### 프로젝트명: 패션 쇼핑몰 상품 목록 페이지 (모바일)
 
-## Available Scripts
+### 사용하게 될 기술: React
 
-In the project directory, you can run:
+### 문서 작성자: 웨지감자
 
-### `npm start`
+## 📝 고객 요구사항 정리
+1. 웹페이지를 기반으로 하되, 모바일 환경에서도 편하게 이용할 수 있도록 개발
+ - 스마트폰으로 아이쇼핑을 하다가 장바구니에 담고 구입
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. 상품 목록에서 사진이 잘 보이도록
+ - 아이쇼핑을 할 때, 사진을 위주로 인식해서 자연스럽게 구매로 이어지도록
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. 화면 상단에 실시간 장바구니 상품 표기
+ - 화면 상단에 내가 어떤 제품을 담았는지 실시간으로 확인할 수 있도록 장바구니 보이기
 
-### `npm test`
+4. 작업한 결과물을 fast url로 공유
+ - 의뢰인 쪽에서 실시간으로 피드백을 줄 수 있도록
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. 참고할 디자인 시안
+ - 미팅 끝나고 이메일로 보내주신다고 하셨습니다.
+ - https://www.figma.com/design/DKeR5wR65RkxcAWReoBccl/%EC%9D%91%EC%9A%A9%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%8B%9C%EC%95%88?node-id=1-1116&node-type=frame&t=WcTwXeFiJhzXB0qS-0
 
-### `npm run build`
+## 📋 기능 목록
+1. 상품 리스트 표시
+ - 상품을 2개의 컬럼으로 보여주는 그리드 레이아웃
+ - 각 상품은 이미지, 브랜드명, 설명, 가격, 장바구니 버튼으로 구성
+	<ProductList /> 컴포넌트 구현
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. 무한 스크롤 기능
+ - 스크롤을 내릴 때마다 추가적인 상품을 불러오는 무한 스크롤 기능
+	IntersectionObserver 또는 react-infinite-scroll-component 라이브러리 사용
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. 장바구니 기능
+ - 각 상품의 "담기" 버튼을 클릭하면 해당 상품이 장바구니에 추가됨
+ - 장바구니에 담긴 상품을 실시간으로 상단에 표시
+ - 장바구니 상태 관리를 위해 useState 및 useContext 활용
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. 상품 필터링
+ - 상품을 브랜드별로 필터링할 수 있는 기능
+ - 선택된 필터에 따라 화면에 보이는 상품이 변경됨
 
-### `npm run eject`
+5. 상품 상세 페이지로 이동
+ - 상품 이미지를 클릭하면 해당 상품의 상세 페이지로 이동하는 기능
+	<Link> 또는 useNavigate()를 사용해 페이지 전환 구현
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+6. 장바구니 상단 고정
+ - 화면 상단에 장바구니 버튼이 고정되어 있어 사용자가 언제든지 장바구니로 접근 가능
+ - 장바구니 아이콘 옆에 담긴 상품의 개수 표시
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+7. 반응형 디자인
+ - 모바일 화면에 맞춰 상품 리스트와 레이아웃이 유동적으로 변경되도록 반응형 디자인 적용
+ - CSS Grid, Flexbox, 또는 styled-components를 사용해 반응형 스타일링 구현
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+8. 상태 유지 (로컬 스토리지 사용)
+ - 사용자가 페이지를 새로고침하거나 앱을 종료해도 장바구니 상태를 유지
+ - localStorage를 활용해 장바구니 상태 저장 및 불러오기
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+9. Fast URL 공유
+ - 작업한 결과물을 빠르게 공유할 수 있도록 netlify나 vercel 같은 호스팅 서비스를 이용해 배포 및 공유 링크 제공
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+10. UI 라이브러리 및 디자인 적용
+ - Ant Design 또는 Material UI 같은 UI 라이브러리 사용 가능
+ - 디자인 시안이 제공되면 해당 시안에 맞춰 UI 스타일링
