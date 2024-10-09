@@ -1,15 +1,25 @@
-import React from 'react';
-import ProductList from './ProductList';  // ProductList 컴포넌트 불러오기
-import './App.css';  // 스타일 불러오기
+import React, { useState } from 'react';
+import ProductList from './ProductList';
+import './App.css';
+import { FaShoppingCart } from 'react-icons/fa'; // 아이콘을 사용하기 위한 라이브러리
 
 function App() {
+  const [cartCount, setCartCount] = useState(0);
+
+  const handleAddToCart = () => {
+    setCartCount(cartCount + 1);
+  };
+
   return (
     <div className="App">
       <header>
-        <h1>신발 상품 목록</h1>
-        <p>현재 6개의 상품이 있습니다.</p>
+        <div>
+          <h1>신발 상품 목록</h1>
+          <p>현재 {cartCount}개의 상품이 있습니다.</p>
+        </div>
+        <FaShoppingCart className="cart-icon" /> {/* 장바구니 아이콘 */}
       </header>
-      <ProductList />  {/* ProductList 렌더링 */}
+      <ProductList onAddToCart={handleAddToCart} />
     </div>
   );
 }
