@@ -9,7 +9,7 @@ import shoe4 from './images/shoe4.jpg';
 import shoe5 from './images/shoe5.jpg';
 import shoe6 from './images/shoe6.jpg';
 
-function ProductList({ onAddToCart, onRemoveFromCart }) {
+function ProductList({ onAddToCart, onRemoveFromCart, onProductCount }) { // onProductCount prop 추가
   const products = [
     { id: 1, brand: '브랜드A', description: '편안하고 착용감이 좋은 신발', price: 35000, imageUrl: shoe1 },
     { id: 2, brand: '브랜드A', description: '힙한 컬러가 매력적인 신발', price: 25000, imageUrl: shoe2 },
@@ -18,6 +18,9 @@ function ProductList({ onAddToCart, onRemoveFromCart }) {
     { id: 5, brand: '브랜드C', description: '편안하고 착용감이 좋은 신발', price: 35000, imageUrl: shoe5 },
     { id: 6, brand: '브랜드C', description: '힙한 컬러가 매력적인 신발', price: 35000, imageUrl: shoe6 }
   ];
+
+  // 상품 수를 상위 컴포넌트로 전달
+  onProductCount(products.length); // 상품 수 전달
 
   return (
     <div className="product-list">
