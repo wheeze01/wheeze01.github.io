@@ -52,7 +52,7 @@ header p {
 /* 상품 목록 그리드 설정 */
 .product-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));  /* 최소 크기를 150px로 줄여 더 많은 항목 배치 */
   gap: 20px;
   padding: 20px;
 }
