@@ -82,17 +82,6 @@ header p {
   margin: 5px 0;
 }
 
-.product-card button {
-  width: 100%;
-  padding: 10px;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
 /* 모바일 최적화 */
 @media (max-width: 768px) {
   .product-list {
