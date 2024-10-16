@@ -33,7 +33,7 @@ function ProductCard({ product, onAddToCart, onRemoveFromCart }) {
         </button>
         <button 
           className="buy-button"  // 노란색 배경의 구매 버튼
-          onClick={handleBuyClick}
+          onClick={handleBuyClick}  // 구매 버튼 클릭 시 카드 목록 페이지로 이동
         >
           구매
         </button>

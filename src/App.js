@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Switch 대신 Routes로 변경
 import ProductList from './ProductList';
+import CardList from './CardList'; // 카드 목록 컴포넌트 추가
 import './App.css';
 import { FaShoppingCart } from 'react-icons/fa'; // 장바구니 아이콘
 
@@ -21,23 +23,31 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header>
-        <div>
-          <h1>신발 상품 목록</h1>
-          <p>현재 {productCount}개의 상품이 있습니다.</p>  {/* 현재 상품 수를 표시 */}
-        </div>
-        <div className="cart-icon-container">
-          <FaShoppingCart className="cart-icon" />
-          {cartCount > 0 && <span className="cart-count">{cartCount}</span>} {/* 개수가 0보다 클 때만 숫자를 표시 */}
-        </div>
-      </header>
-      <ProductList 
-        onAddToCart={handleAddToCart} 
-        onRemoveFromCart={handleRemoveFromCart} 
-        onProductCount={handleProductCount}  // 상품 수 전달
-      />
-    </div>
+    <Router>
+      <div className="App">
+        <header>
+          <div>
+            <h1>신발 상품 목록</h1>
+            <p>현재 {productCount}개의 상품이 있습니다.</p>  {/* 현재 상품 수를 표시 */}
+          </div>
+          <div className="cart-icon-container">
+            <FaShoppingCart className="cart-icon" />
+            {cartCount > 0 && <span className="cart-count">{cartCount}</span>} {/* 개수가 0보다 클 때만 숫자를 표시 */}
+          </div>
+        </header>
+
+        <Routes> {/* Switch 대신 Routes 사용 */}
+          <Route path="/" element={
+            <ProductList 
+              onAddToCart={handleAddToCart} 
+              onRemoveFromCart={handleRemoveFromCart} 
+              onProductCount={handleProductCount}  // 상품 수 전달
+            />
+          } />
+          <Route path="/card-list" element={<CardList />} /> {/* 카드 목록 페이지 */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
