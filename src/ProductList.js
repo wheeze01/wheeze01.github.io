@@ -19,7 +19,7 @@ function ProductList({ onAddToCart, onRemoveFromCart, onProductCount }) { // onP
     { id: 6, brand: '브랜드C', description: '힙한 컬러가 매력적인 신발', price: 35000, imageUrl: shoe6 }
   ];
 
-  // 상품 수를 상위 컴포넌트로 전달
+  // 상품 수를 상위 컴포넌트로 전달하고 싶을 때 호출
   onProductCount(products.length); // 상품 수 전달
 
   return (

@@ -1,0 +1,97 @@
+.card-form-container {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .card-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .submit-btn {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .submit-btn:hover {
+    background-color: #444;
+  }
+  
+  /* 카드 이미지와 카드 번호 표시 스타일 */
+  .card-image {
+    width: 100%;
+    height: auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    position: relative;
+  }
+  
+  .sample-card-image {
+    max-width: 100%;  
+    height: auto;     
+    object-fit: contain;
+    border-radius: 10px;
+  }
+  
+  .card-number-display, .card-holder-display, .expiry-date-display {
+    position: absolute;
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  .card-number-display {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .card-holder-display {
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .expiry-date-display {
+    bottom: 20px;
+    right: 20px;
+  }
+  
